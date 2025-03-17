@@ -10,20 +10,23 @@ class TestimonialsController {
         $this->testimonialsModel = new TestimonialsModel();
     }
 
-    public function addTestimonials() {
+    public function addTestimonials($visitor_firstname, $visit_date, $message) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $testimonial = json_decode(file_get_contents("php://input"), true);
-            if (!empty($testimonial['visitor_firstname']) && !empty($testimonial['message'])) {
-                $this->testimonialsModel = addTestimonials();
-                echo json_encode(["success" => true, "message" => "Votre avis a été envoyé et est en attente de validation"]);
-            } else {
-                echo json_encode(["success" => false, "message" => "Erreur lors de la soumission de l'avis"]);
-            }
+            $visitor_firstname = htmlspecialchars($_POST['visitor_firstname'], ENT_QUOTES);
+            $visit_date = filter_var($_POST['visit_date'], FILTER_VALIDATE_INT);
+            $message = htmlspecialchars($_POST['message'], ENT_QUOTES);
         }
+        if ($this->testimonialsModel->createTestimonials($visitor_firstname, $visit_date, $message)) {
+            header("Location:" . ROOT . "accueil");
+        }    
     }
 
-    public function approuvedTestimonials() {
-        echo json_encode($this->testimonialsModel->getApprouvedTestimonials()); 
+    public function showTestimonials() {
+        if (isset($_GET['ajax']) && $_GET['ajax'] == '1') {
+            header('Content-Type: application/json');
+            echo json_encode($this->testimonialsModel->getApprovedTestimonials());
+            exit;     
+        }
     }
 
     public function approveTestimonials() {

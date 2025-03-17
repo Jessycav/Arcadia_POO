@@ -28,8 +28,8 @@
     <!-- Lien JavaScript -->
     <script src="<?= ROOT ?>public/js/navbar_script.js" defer></script>
     <script src="<?= ROOT ?>public/js/schedule_script.js" defer></script>
-    <script src="<?= ROOT ?>public/js/testimonial_script.js" defer></script>
-    <script src="<?= ROOT ?>public/js/carousel_script.js" defer></script>
+<!--     <script src="<?= ROOT ?>public/js/testimonial_script.js" defer></script>
+ -->    <script src="<?= ROOT ?>public/js/carousel_script.js" defer></script>
     <script src="<?= ROOT ?>public/js/stats.js" defer></script>
     <script src="<?= ROOT ?>public/js/getStats.js" defer></script>
     <script src="<?= ROOT ?>public/js/server.js" defer></script>

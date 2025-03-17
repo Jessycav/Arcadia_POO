@@ -31,4 +31,9 @@ class AnimalsController {
         }
         require __DIR__ . '/../views/pages/animals/animalsDetailPage.php';
     }
+
+    public function viewAnimals() {
+        $animals = $this->animalsModel->getAllAnimals();
+        require __DIR__ . '/../views/pages/admin/crudAnimals/animalsCrudPage.php';
+    }
 }

@@ -9,10 +9,7 @@ ob_start(); //Stocke les informations temporairement
     <h3>Connexion à l'espace professionnel</h3>
     <!-- Espace de contact -->
     <div class="form-container">
-        <?php if ($error): ?>
-            <p style="color: red;"><?= htmlspecialchars($error) ?></p>
-        <?php endif;?>
-        <form action="" method="POST">
+        <form action="<?=ROOT?>monCompte/login" method="POST">
             <div class="inputBox">
                 <label for="user_name">Nom d'utilisateur :</label>
                 <input type="text" id="username" name="user_name" placeholder="Entrer votre nom d'utilisateur" required />
@@ -22,7 +19,7 @@ ob_start(); //Stocke les informations temporairement
                 <input type="password" id="password" name="user_password" placeholder="Entrer votre mot de passe" required />
             </div>
             <p>En cas d'oubli de vos identifiants, veuillez contacter l'administrateur.</p>
-            <button class="btn" type="submit">SE CONNECTER</button>
+            <a href="<?=ROOT?>monCompte/dashboard"><button class="btn" type="submit">SE CONNECTER</button></a>
         </form>
     </div> 
 </div>

@@ -5,7 +5,7 @@ ob_start(); //Stocke les informations temporairement
 <div class="main">
     <h3>Écrire un avis</h3>
     <div class="form-container">
-        <form action="" method="POST">
+        <form action="<?=ROOT?>avis/ajouterAvis" method="POST">
             <div class="inputBox">
                 <label for="visitor_firstname">Prénom :</label>
                 <input type="text" id="visitor_firstname" name="visitor_firstname" placeholder="Entrer votre prénom" required />

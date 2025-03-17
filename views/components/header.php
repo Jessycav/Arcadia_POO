@@ -9,7 +9,7 @@
         </nav>
         <div class="icons">
             <i class="fa fa-bars" id="menu-bars"></i>
-            <a href="<?=ROOT?>connexion/espacePro" class="nav-link"><i class="fa fa-user" id="user-btn" style="font-size:24px"></i></a>
+            <a href="<?=ROOT?>monCompte/espacePro" class="nav-link"><i class="fa fa-user" id="user-btn" style="font-size:24px"></i></a>
         </div>
     </div>
 </header>

@@ -17,14 +17,19 @@ class TestimonialsModel extends Database {
         $this->approuve_message = $approuve_message;
     }
 
-    public function addTestimonials() {
+    public function createTestimonials($visitor_firstname, $visit_date, $message) {
         $sql = "INSERT INTO testimonial (visitor_firstname, visit_date, message) 
         VALUES (:visitor_firstname, :visit_date, :message)";
         $stmt = $this->connect()->prepare($sql);
-        $stmt->execute();
+        $stmt->bindParam(':visitor_firstname', $visitor_firstname, PDO::PARAM_STR);
+        $stmt->bindParam(':visit_date', $visit_date, PDO::PARAM_INT);
+        $stmt->bindParam(':message', $message, PDO::PARAM_STR);
+        $newTestimonial = $stmt->execute();
+        $stmt->closeCursor();
+        return $newTestimonial;
     }
 
-    public function getApprouvedTestimonials() {
+    public function getApprovedTestimonials() {
         $sql = "SELECT * FROM testimonial WHERE approuve_message = 1";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute();

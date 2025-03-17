@@ -2,9 +2,9 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-//session_start();  Démarre une session
+session_start();  //Démarre une session
 // Vérifier si un utilisateur est connecté -<stockage dans la variable $user_id
-//$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
 /* Définir l'URL de base du projet avec : 
 -> détection site HTTP ou HTTPS
@@ -29,8 +29,6 @@ $usersController = new UsersController();
 require_once 'controllers/TestimonialsController.php';
 $testimonialsController = new TestimonialsController();
 
-
-
 try {
     if (empty($_GET['page'])) { //Vérifie si le paramètre page est vide
         $url[0] = "accueil"; //Renvoie une page d'accueil par défaut
@@ -41,23 +39,45 @@ try {
 
     switch ($url[0]) {
         case "accueil":
-            $homeController->homePage(); //Objet appelle la méthode homePage
-
-            if (isset($_GET['fetch']) && $_GET['fetch'] === 'testimonials') {
-                header("Content-Type: application/json");
-                $testimonialsController->approuvedTestimonials();
-                echo json_encode($testimonials);
-                exit();
+            if (isset($_GET['ajax']) && $_GET['ajax'] == '1') {
+                $testimonialsController->showTestimonials();
+            } else {
+                $homeController->homePage(); //Objet appelle la méthode homePage
             }
-            
             break;
-
+        
         case "habitats":
-            require_once ('./indexComponents/habitatsIndex.php');
+            switch ($url[1]) {
+                case "tousleshabitats":
+                    $habitatsController->allHabitats();
+                    break;
+            
+                case "habitatsDetail":
+                    $habitat_id = isset($_POST['habitat_id']) ? htmlentities($_POST['habitat_id']) :
+                    (isset($_GET['id']) ? htmlentities($_GET['id']) : null);
+                    $habitatsController->showHabitats($habitat_id);
+                    break;
+            
+                default:
+                    throw new Exception ("La page demandée n'existe pas"); 
+            }
             break;
         
         case "animaux":
-            require_once ('./indexComponents/animalsIndex.php');
+            switch ($url[1]) {
+                case "tousnosanimaux":
+                    $animalsController->allAnimals();
+                    break;
+                
+                case "animalDetail":
+                    $animal_id = isset($_POST['animal_id']) ? htmlentities($_POST['animal_id']) :
+                    (isset($_GET['id']) ? htmlentities($_GET['id']) : null);
+                    $animalsController->showAnimalDetail($animal_id);
+                    break;
+            
+                default:
+                    throw new Exception ("La page demandée n'existe pas"); 
+            }
             break;
             
         case "services":
@@ -72,7 +92,7 @@ try {
             require_once ('indexComponents/testimonialsIndex.php');
             break;
         
-        case "connexion":
+        case "monCompte":
             require_once ('indexComponents/connexionIndex.php');
             break;
     
