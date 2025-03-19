@@ -51,6 +51,7 @@
                 <img src="<?=ROOT?>public/assets/LogoArcadia.jpg" alt="Logo">
             </div>
             <p>Tous droits réservés | Créé par Jessyca pour STUDI | <i class="fa fa-copyright"></i> 2024</p>
+            <a href="">Mentions légales</a>
         </div>
     </div>    
 </footer>

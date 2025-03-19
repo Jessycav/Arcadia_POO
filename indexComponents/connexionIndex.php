@@ -25,16 +25,23 @@ switch ($url[1]) {
         break;
 
     case "gestionUtilisateurs":
+        //require_once ('indexComponents/crudServicesIndex.php');
         break;
+
     case "gestionHabitats":
+        require_once ('indexComponents/crudHabitatsIndex.php');
         break;
+
     case "gestionAnimaux":
+        require_once ('indexComponents/crudAnimalsIndex.php');
         break;
+
     case "gestionServices":
         require_once ('indexComponents/crudServicesIndex.php');
         break;    
     
     case "gestionAvis":
+        //require_once ('indexComponents/crudServicesIndex.php');
         break;
 
     default:

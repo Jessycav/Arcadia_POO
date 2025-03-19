@@ -63,6 +63,15 @@ class AnimalsModel extends Database {
         $animal = $stmt->fetch(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
         return $animal; 
+    }
 
+    public function getAnimals() {
+        $sql = "SELECT animal.animal_id, animal.animal_name, animal_image.animal_image_url 
+        FROM animal JOIN animal_image ON animal.animal_id = animal_image.animal_id";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        $animals = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $animals;
     }
 }

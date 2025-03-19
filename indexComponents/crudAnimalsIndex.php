@@ -9,6 +9,8 @@ switch ($url[2]) {
         break;
 
     case "detailAnimal":
+        $animal_id = intval($_POST['animal_id']);
+        $animalsController->viewOneAnimalDetail($animal_id);
         break;
         
 

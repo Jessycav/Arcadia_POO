@@ -36,4 +36,12 @@ class AnimalsController {
         $animals = $this->animalsModel->getAllAnimals();
         require __DIR__ . '/../views/pages/admin/crudAnimals/animalsCrudPage.php';
     }
+
+    public function viewOneAnimalDetail($animal_id) {
+        $oneAnimal = $this->animalsModel->getOneAnimalById($animal_id);
+        if (empty($oneAnimal)) {
+            die("Animal introuvable");
+        }
+        require __DIR__ . '/../views/pages/admin/crudAnimals/animalDetailPage.php';
+    }
 }
