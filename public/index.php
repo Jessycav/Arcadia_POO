@@ -14,19 +14,19 @@ $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 define("ROOT", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . $_SERVER["PHP_SELF"]));
 
 // Chargement des controlleurs
-require_once 'controllers/HomeController.php';
+require_once __DIR__ . '/../controllers/HomeController.php';
 $homeController = new HomeController();
-require_once 'controllers/HabitatsController.php';
+require_once __DIR__ . '/../controllers/HabitatsController.php';
 $habitatsController = new HabitatsController();
-require_once 'controllers/AnimalsController.php';
+require_once __DIR__ . '/../controllers/AnimalsController.php';
 $animalsController = new AnimalsController();
-require_once 'controllers/ServicesController.php';
+require_once __DIR__ . '/../controllers/ServicesController.php';
 $servicesController = new ServicesController();
-require_once 'controllers/FormsController.php';
+require_once __DIR__ . '/../controllers/FormsController.php';
 $formsController = new FormsController();
-require_once 'controllers/UsersController.php';
+require_once __DIR__ . '/../controllers/UsersController.php';
 $usersController = new UsersController();
-require_once 'controllers/TestimonialsController.php';
+require_once __DIR__ . '/../controllers/TestimonialsController.php';
 $testimonialsController = new TestimonialsController();
 
 try {
