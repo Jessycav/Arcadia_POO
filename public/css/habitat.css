@@ -1,0 +1,84 @@
+/* Paramètres de la section habitats*/
+.thumb{
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+    margin: 2rem auto;
+    padding: 2%;
+}
+
+.thumb .box-container{ 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+}
+
+.thumb .box-container .box{
+    position: relative;
+    text-align: center;
+    margin: 1rem;
+    line-height: 1.5;
+    padding-bottom: 1rem;
+    color: #074D1F;
+    
+}
+
+.thumb .box-container .box img{
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.thumb .box-container .box h4{
+    font-family: "Aclonica", sans-serif;
+    text-transform: uppercase;
+    color: #074D1F;
+}
+
+.thumb i{
+    display: block;
+    margin: 0 auto;
+    color: #ebb42c;
+    font-size: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+}
+
+#habitat {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
+
+#habitat .box{
+    margin: 1rem;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+    background-color: #f3f1ed;
+    position: relative;
+    text-align: center;
+}
+
+#habitat .box img{
+    width: 60%;
+    height: 60%;
+    padding: 0.5rem;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+#habitat .box h4{
+    text-align: center;
+    max-width: 400px;
+    color: #074D1F;
+}
+
+#habitat .box a button{
+    font-size: 1rem;
+    margin: 0.5rem auto;
+    padding: 0.5rem 1rem;
+    text-align: center;
+}
+
+#habitat.box a button:hover{
+    background-color: #d2eddc;
+}

@@ -1,0 +1,44 @@
+/* Paramètres du caroussel d'images */
+/* Style du conteneur caroussel */
+.carousel{   
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-inner{
+    display: flex;
+    transition: transform 0.5s ease-in-out;;
+}
+.slide{
+    min-width: 100%;
+    height: 400px;
+    background-size: cover; /* remplir l'image dans l'espace disponible*/
+    background-position: center;
+}   
+
+button.prev,
+button.next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    font-size: 24px;
+    background-color: #E8DEC5;
+    color: black;
+}
+
+.prev{
+    left: 10px;
+}
+
+.next{
+    right: 10px;
+}
+
+.prev:hover,
+.next:hover{
+    background-color: #074D1F;
+    color: #E8DEC5;
+}
